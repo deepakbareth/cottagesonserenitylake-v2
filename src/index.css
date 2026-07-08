@@ -1,0 +1,80 @@
+/* ─────────────────────────────────────────────────────────────
+   Google Fonts
+   ───────────────────────────────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap");
+
+/* ─────────────────────────────────────────────────────────────
+   Tailwind directives
+   ───────────────────────────────────────────────────────────── */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────────────────────
+   Global resets & base styles
+   ───────────────────────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+    background-color: #FFFFFF;   /* brand.bg */
+    color: #111827;              /* brand.text */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Reusable component classes
+   ───────────────────────────────────────────────────────────── */
+@layer components {
+  /* Primary dark charcoal CTA button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-brand-accent text-white font-medium text-sm
+           px-6 py-2.5 rounded-full
+           transition-all duration-200
+           hover:bg-brand-accentHov hover:shadow-md
+           focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2
+           active:scale-[0.97];
+  }
+
+  /* Secondary outline button */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2
+           border border-brand-border text-brand-text font-medium text-sm
+           px-6 py-2.5 rounded-full
+           transition-all duration-200
+           hover:border-brand-accent hover:bg-brand-surface
+           focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2
+           active:scale-[0.97];
+  }
+
+  /* Nav link */
+  .nav-link {
+    @apply relative text-brand-muted font-medium text-sm transition-colors duration-200
+           hover:text-brand-text;
+  }
+
+  .nav-link-active {
+    @apply text-brand-text font-semibold;
+  }
+
+  /* Utility to hide scrollbars on swipeable rows */
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
